@@ -1,0 +1,35 @@
+{
+  "name": "table-sheets",
+  "version": "1.0.0",
+  "description": "An excel-like table editor for large data sets.",
+  "repository": "https://github.com/Verzla/table-sheets",
+  "author": "adam@verzla.com",
+  "license": "ISC",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib"
+  ],
+  "exports": {
+    "src": {
+      "types": "./lib/index.d.ts",
+      "default": "./lib/index.js"
+    }
+  },
+  "scripts": {
+    "clean": "rimraf lib",
+    "prebuild": "npm run clean",
+    "build": "tsc",
+    "preversion": "npm run build",
+    "version": "npm publish"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.21",
+    "prettier": "^3.0.3",
+    "rimraf": "^5.0.1",
+    "typescript": "^5.2.2"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0"
+  }
+}
