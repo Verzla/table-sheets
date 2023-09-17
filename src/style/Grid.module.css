@@ -1,0 +1,41 @@
+.grid, .header, .row {
+    display: grid;
+}
+
+.header > div {
+    background: var(--tsGrid-headerBg);
+    color: var(--tsGrid-headerFontColor);
+    font-weight: bold;
+}
+
+.header, .row {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.header > div, .row > div {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    padding: 12px;
+    border-collapse: collapse;
+    transition: box-shadow 0.2s linear;
+    user-select: none;
+}
+
+.row:not(:first-child) {
+    border-bottom: 1px solid var(--tsGrid-border);
+}
+
+.row > div:first-child {
+    border-left: 1px solid var(--tsGrid-border);
+}
+
+.row > div:not(:last-child) {
+    border-right: 1px solid var(--tsGrid-border);
+}
+
+.row > div.active {
+    border-right-color: transparent;
+    box-shadow: 0 0 0 2px var(--tsGrid-primary);
+}

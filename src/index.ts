@@ -1,5 +1,2 @@
-import { Grid } from './components/Grid'
-
-export default {
-  Grid,
-}
+export * from './types/Grid';
+export * from './components/Grid';
