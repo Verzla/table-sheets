@@ -1,0 +1,40 @@
+.autocomplete {
+    position: absolute;
+    inset: 0;
+    padding: inherit;
+}
+
+.autocomplete-items {
+    background: #fff;
+    position: absolute;
+    border: 1px solid var(--tsGrid-border);
+    z-index: 99;
+    top: calc(100% + 2px);
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    max-height: 350px;
+    overflow-y: auto;
+    border-radius: 0 0 8px 8px;
+}
+
+.autocomplete-items > :not(style) ~ :not(style) {
+    margin-top: 4px;
+}
+
+.autocomplete-items div {
+    padding: 8px 8px;
+    cursor: pointer;
+}
+
+.autocomplete-items div:hover {
+    /*when hovering an item:*/
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.autocomplete-active {
+    /*when navigating through the items using the arrow keys:*/
+    background-color: var(--tsGrid-primary) !important;
+    color: #ffffff !important;
+}

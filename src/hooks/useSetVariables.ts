@@ -9,6 +9,7 @@ interface StyleVariables {
   headerBg: string;
   headerFontColor: string;
   border: string;
+  selectedBg: string;
 }
 
 export type StyleVariableOptions = Partial<StyleVariables>;
@@ -20,6 +21,7 @@ const DEFAULT_STYLE_OPTIONS: StyleVariables = {
   headerBg: '#EDE7FB',
   headerFontColor: DEFAULT_PRIMARY,
   border: '#E9E9E9',
+  selectedBg: '#F8F5FF',
 };
 
 export const useSetVariables = (

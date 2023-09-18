@@ -12,15 +12,20 @@
     grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
-.header > div, .row > div {
+.header > div, .row > div.cell > div {
     display: flex;
     align-items: center;
     justify-content: flex-start;
     box-sizing: border-box;
     padding: 12px;
     border-collapse: collapse;
-    transition: box-shadow 0.2s linear;
+    transition: background-color 0.2s linear;
     user-select: none;
+}
+
+div.cell[data-readonly="true"] {
+    cursor: not-allowed;
+    background: rgba(0, 0, 0, 0.03);
 }
 
 .row:not(:first-child) {
@@ -35,7 +40,22 @@
     border-right: 1px solid var(--tsGrid-border);
 }
 
-.row > div.active {
+.row > div.cell {
+    position: relative;
+}
+
+.row > div.cell > div {
+    position: absolute;
+    inset: 0;
+}
+
+.row > div.cell > div.active {
     border-right-color: transparent;
-    box-shadow: 0 0 0 2px var(--tsGrid-primary);
+    outline: 2px dashed var(--tsGrid-primary);
+    z-index: 2;
+}
+
+.row > div.cell > div.focus {
+    z-index: 1;
+    background-color: var(--tsGrid-selectedBg);
 }

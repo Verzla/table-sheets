@@ -1,10 +1,11 @@
-// @ts-ignore
 import React, { useCallback, useState } from 'react';
 import { Grid } from '../components/Grid';
 import { ColumnRenderer, OnDataUpdate } from '../types/Grid';
+import { Autocomplete } from '../components/autocomplete/Autocomplete';
+import { brands, categories } from './Data';
 
-type FakeCategory = { id: number; name: string };
-type FakeBrand = { id: number; name: string };
+type FakeCategory = { id: number; content: string };
+type FakeBrand = { id: number; content: string };
 
 type FakeProductType = {
   id: number;
@@ -30,8 +31,17 @@ export const Example = () => {
   const onFieldChange: OnDataUpdate<FakeProductType> = useCallback(
     (rowIndex, field, value) => {
       const newData = [...data];
-      const row = newData[rowIndex];
-      row[field as string] = value;
+
+      if (Array.isArray(rowIndex)) {
+        rowIndex.forEach((rI) => {
+          const row = newData[rI];
+          row[field as string] = value;
+        });
+      } else {
+        const row = newData[rowIndex];
+        row[field as string] = value;
+      }
+
       setData([].concat(newData));
     },
     [data]
@@ -39,20 +49,40 @@ export const Example = () => {
 
   const columns: ColumnRenderer<FakeProductType>[] = [
     {
-      title: () => "Id",
-      value: (row) => row.id
+      title: () => 'Id',
+      value: (row) => row.id,
+      readonly: true,
     },
     {
-      title: () => "Name",
-      value: (row) => row.name
+      title: () => 'Name',
+      value: (row) => row.name,
+      readonly: true,
     },
     {
-      title: () => "Category",
-      value: (row) => row.category ? row.category.id : 'null',
+      title: () => 'Category',
+      value: (row, state) => (
+        <Autocomplete
+          name={'category'}
+          data={categories}
+          value={row.category}
+          placeholder={'Select category'}
+          onChange={(category) =>
+            onFieldChange(state.rowIndex, 'category', category)
+          }
+        />
+      ),
     },
     {
-      title: () => "Brand",
-      value: (row) => row.brand ? row.brand.id : 'null'
+      title: () => 'Brand',
+      value: (row, state) => (
+        <Autocomplete
+          name={'brand'}
+          data={brands}
+          value={row.brand}
+          placeholder={'Select brand'}
+          onChange={(brand) => onFieldChange(state.rowIndex, 'brand', brand)}
+        />
+      ),
     },
   ];
 
@@ -63,11 +93,12 @@ export const Example = () => {
           "-apple-system, BlinkMacSystemFont, 'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif",
       }}
     >
-      <Grid
-        data={data}
-        onChange={onFieldChange}
-        columns={columns}
-      />
+      <h1>Verzla table sheets example</h1>
+      <p>
+        Hold down (CMD or CTRL) and click on cells in the same column to edit
+        multiple rows.
+      </p>
+      <Grid data={data} onChange={onFieldChange} columns={columns} />
     </div>
   );
 };
