@@ -4,6 +4,7 @@ interface StyleVariables {
     headerBg: string;
     headerFontColor: string;
     border: string;
+    selectedBg: string;
 }
 export type StyleVariableOptions = Partial<StyleVariables>;
 export declare const useSetVariables: (ref: RefObject<HTMLDivElement>, options: StyleVariableOptions) => void;
