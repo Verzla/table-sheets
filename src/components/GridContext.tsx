@@ -29,9 +29,33 @@ export const useGridState = (xMax: number, yMax: number): GridState => {
       const newSelection: GridPoint = currentSelection ?? { x: 0, y: 0 };
 
       if (position == 'x') {
-        newSelection.x = Math.max(0, Math.min(newSelection.x + step, xMax));
+        const newX = Math.max(0, Math.min(newSelection.x + step, xMax));
+
+        // Out of bounds.
+        if (newX > xMax) {
+          return;
+        }
+        console.log('newSelection.x', newX);
+        newSelection.x = newX;
       } else {
-        newSelection.y = Math.max(0, Math.min(newSelection.y + step, yMax));
+        const newY = Math.max(0, Math.min(newSelection.y + step, yMax));
+
+        // Out of bounds.
+        if (newY > yMax) {
+          return;
+        }
+
+        newSelection.y = newY;
+      }
+
+      // Check if the new selection is readonly or not
+      if (
+        document &&
+        document.querySelector(
+          `[data-x="${newSelection.x}"][data-y="${newSelection.y}"][data-readonly="true"]`
+        )
+      ) {
+        return;
       }
 
       setSelections(shiftKey ? [...selections, newSelection] : [newSelection]);

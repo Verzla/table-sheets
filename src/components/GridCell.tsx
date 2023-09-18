@@ -18,7 +18,7 @@ export const GridCell = ({
   const cellState: CellState = getGridCellState({ y, x });
 
   return (
-    <div className={css.cell} data-readonly={Boolean(readonly)}>
+    <div className={css.cell} data-readonly={Boolean(readonly)} data-y={y} data-x={x}>
       <div
         className={[
           cellState.isActive ? css.active : '',

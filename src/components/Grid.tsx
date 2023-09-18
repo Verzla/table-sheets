@@ -8,7 +8,7 @@ import { GridCell } from './GridCell';
 import { useEventListener, useOnClickOutside } from 'usehooks-ts';
 
 export function Grid<T>({ data, columns, styleVariables }: GridProps<T>) {
-  const gridState = useGridState(columns.length, data.length);
+  const gridState = useGridState(columns.length - 1, data.length - 1);
   const ref = useRef<HTMLDivElement>(null);
 
   useSetVariables(ref, styleVariables);
