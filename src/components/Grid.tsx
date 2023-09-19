@@ -11,7 +11,7 @@ export function Grid<T>({ data, columns, styleVariables }: GridProps<T>) {
   const gridState = useGridState(columns.length - 1, data.length - 1);
   const ref = useRef<HTMLDivElement>(null);
 
-  useSetVariables(ref, styleVariables);
+  useSetVariables(ref, styleVariables ?? {});
 
   useOnClickOutside(ref, () => {
     gridState.clearSelections();

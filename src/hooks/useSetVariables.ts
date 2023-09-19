@@ -37,7 +37,10 @@ export const useSetVariables = (
   useLayoutEffect(() => {
     if (ref && ref.current) {
       Object.keys(opts).map((o) => {
-        ref.current.style.setProperty(`--${variableStylePrefix}${o}`, opts[o]);
+        ref.current?.style.setProperty(
+          `--${variableStylePrefix}${o}`,
+          opts[o as keyof StyleVariables]
+        );
       });
     }
   }, [ref, opts]);

@@ -1,21 +1,18 @@
 {
   "name": "table-sheets",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "An excel-like table editor for large data sets.",
-  "repository": "https://github.com/Verzla/table-sheets",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Verzla/table-sheets.git"
+  },
   "author": "adam@verzla.com",
-  "license": "ISC",
+  "license": "MIT",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "files": [
-    "lib"
+    "lib/**/*"
   ],
-  "exports": {
-    "src": {
-      "types": "./lib/index.d.ts",
-      "default": "./lib/index.js"
-    }
-  },
   "scripts": {
     "dev": "vite --config src/example/vite.config.ts",
     "clean": "rimraf lib",

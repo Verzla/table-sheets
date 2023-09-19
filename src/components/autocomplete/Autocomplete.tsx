@@ -1,14 +1,7 @@
-import React, {
-  useCallback,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from 'react';
+import React, { useCallback, useMemo, useRef, useState } from 'react';
 import css from './Autocomplete.module.css';
 import { Input, InputProps } from '../input/Input';
 import { useEventListener, useOnClickOutside } from 'usehooks-ts';
-import { useGridContext } from '../GridContext';
 
 type IdentifiableContent<T> = T & { id: number; content: string };
 
@@ -67,7 +60,7 @@ export function Autocomplete<T>({
             setFocused(true);
 
             // Do not add the space just open the auto complete menu
-            if (inputRef.current.value.length === 0) {
+            if (inputRef.current?.value.length === 0) {
               e.preventDefault();
               return;
             }
