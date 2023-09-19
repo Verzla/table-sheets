@@ -1,6 +1,6 @@
 {
   "name": "table-sheets",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "An excel-like table editor for large data sets.",
   "repository": "https://github.com/Verzla/table-sheets",
   "author": "adam@verzla.com",
