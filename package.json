@@ -1,6 +1,6 @@
 {
   "name": "table-sheets",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "An excel-like table editor for large data sets.",
   "repository": {
     "type": "git",
@@ -17,14 +17,16 @@
     "dev": "vite --config src/example/vite.config.ts",
     "clean": "rimraf lib",
     "prebuild": "npm run clean",
-    "build": "tsc",
+    "migrate-css": "cpy \"src/**/*.css\" lib/",
+    "build": "tsc && npm run migrate-css",
     "preversion": "npm run build",
     "version": "npm publish"
   },
   "devDependencies": {
-    "@types/react": "^18.2.21",
+    "@types/react": "^18.2.22",
     "@types/react-dom": "^18.2.7",
     "@vitejs/plugin-react": "^4.0.4",
+    "cpy-cli": "^5.0.0",
     "prettier": "^3.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

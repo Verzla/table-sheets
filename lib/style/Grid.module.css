@@ -1,0 +1,61 @@
+.grid, .header, .row {
+    display: grid;
+}
+
+.header > div {
+    background: var(--tsGrid-headerBg);
+    color: var(--tsGrid-headerFontColor);
+    font-weight: bold;
+}
+
+.header, .row {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.header > div, .row > div.cell > div {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    padding: 12px;
+    border-collapse: collapse;
+    transition: background-color 0.2s linear;
+    user-select: none;
+}
+
+div.cell[data-readonly="true"] {
+    cursor: not-allowed;
+    background: rgba(0, 0, 0, 0.03);
+}
+
+.row:not(:first-child) {
+    border-bottom: 1px solid var(--tsGrid-border);
+}
+
+.row > div:first-child {
+    border-left: 1px solid var(--tsGrid-border);
+}
+
+.row > div:not(:last-child) {
+    border-right: 1px solid var(--tsGrid-border);
+}
+
+.row > div.cell {
+    position: relative;
+}
+
+.row > div.cell > div {
+    position: absolute;
+    inset: 0;
+}
+
+.row > div.cell > div.active {
+    border-right-color: transparent;
+    outline: 2px dashed var(--tsGrid-primary);
+    z-index: 2;
+}
+
+.row > div.cell > div.focus {
+    z-index: 1;
+    background-color: var(--tsGrid-selectedBg);
+}
