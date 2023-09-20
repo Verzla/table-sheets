@@ -1,6 +1,5 @@
 import { createContext, useCallback, useContext, useState } from 'react';
 import { CellState, GridPoint, GridState } from '../types/Grid';
-import css from '../style/table-sheets.css';
 
 export const useGridState = (xMax: number, yMax: number): GridState => {
   const [selections, setSelections] = useState<Array<GridPoint>>([]);
@@ -64,7 +63,7 @@ export const useGridState = (xMax: number, yMax: number): GridState => {
       // Focus the nearest input, would be fun to find a better way than selecting based on the CSS class
       setTimeout(() => {
         if (document) {
-          const el = document.querySelector(`.${css.focus}`);
+          const el = document.querySelector('.ts-cell-focus');
           const nearestInput = el?.querySelector('input');
 
           if (nearestInput) {

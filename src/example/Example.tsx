@@ -35,11 +35,11 @@ export const Example = () => {
       if (Array.isArray(rowIndex)) {
         rowIndex.forEach((rI) => {
           const row = newData[rI];
-          row[field as string] = value;
+          row[field] = value;
         });
       } else {
         const row = newData[rowIndex];
-        row[field as string] = value;
+        row[field] = value;
       }
 
       setData([].concat(newData));

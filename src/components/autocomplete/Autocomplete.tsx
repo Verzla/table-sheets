@@ -135,7 +135,7 @@ export function Autocomplete<T>({
           {availableOptions.map((d, dIndex) => (
             <div
               key={`ac_${name}_${d.id}`}
-              className={dIndex === itemFocused ? 'ts-autocomplete-active`' : ''}
+              className={dIndex === itemFocused ? 'ts-autocomplete-active' : ''}
               onClick={() => {
                 // TODO the onClick is not working
                 console.log('onClick', d);

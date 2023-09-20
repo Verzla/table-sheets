@@ -1,6 +1,6 @@
 {
   "name": "table-sheets",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "An excel-like table editor for large data sets.",
   "repository": {
     "type": "git",

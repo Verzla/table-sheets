@@ -25,8 +25,8 @@ export const GridCell = ({
     >
       <div
         className={[
-          cellState.isActive ? 'ts-active' : '',
-          cellState.isSelected ? 'ts-focus' : '',
+          cellState.isActive ? 'ts-cell-active' : '',
+          cellState.isSelected ? 'ts-cell-focus' : '',
         ].join(' ')}
         onClick={(e) => {
           if (!readonly) {
