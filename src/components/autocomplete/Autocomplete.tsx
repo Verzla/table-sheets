@@ -26,7 +26,7 @@ export function Autocomplete<T>({
 
   // Pretty bad search, but it works for now, consider adding some fuzzy search later
   const availableOptions = useMemo(() => {
-    if (search.length > 0) {
+    if (search && search?.length > 0) {
       setItemFocused(0);
       return data.filter((d) =>
         JSON.stringify(d).toLowerCase().includes(search.toLowerCase())
@@ -136,11 +136,11 @@ export function Autocomplete<T>({
             <div
               key={`ac_${name}_${d.id}`}
               className={dIndex === itemFocused ? 'ts-autocomplete-active' : ''}
-              onClick={() => {
-                // TODO the onClick is not working
-                console.log('onClick', d);
-                updateOnChange(d);
-              }}
+              // onClick={() => {
+              //   // TODO the onClick is not working
+              //   console.log('onClick', d);
+              //   updateOnChange(d);
+              // }}
             >
               {d.name}
             </div>

@@ -4,12 +4,7 @@
 
 .ts-header > div {
     background: var(--ts-style-headerBg);
-    color: var(--ts-style-headerFontColor);
     font-weight: bold;
-}
-
-.ts-header, .ts-row {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
 .ts-header > div, .ts-row > .ts-cell > div {
@@ -17,10 +12,16 @@
     align-items: center;
     justify-content: flex-start;
     box-sizing: border-box;
-    padding: 12px;
+    padding: 8px;
     border-collapse: collapse;
     transition: background-color 0.2s linear;
     user-select: none;
+    font-size: 13px;
+    color: var(--ts-style-textColor);
+}
+
+.ts-header {
+    border-bottom: 1px solid var(--ts-style-border);
 }
 
 .ts-cell[data-readonly="true"] {
@@ -89,6 +90,12 @@
     max-height: 350px;
     overflow-y: auto;
     border-radius: 0 0 8px 8px;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+.ts-autocomplete-items::-webkit-scrollbar {
+    display: none;
 }
 
 .ts-autocomplete-items > :not(style) ~ :not(style) {

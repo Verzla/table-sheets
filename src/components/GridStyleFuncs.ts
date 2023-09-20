@@ -6,8 +6,12 @@ type GridRowsOptions = {
 export const GetGridRows = (
   dataLength: number,
   options: GridRowsOptions = {
-    headerHeight: 60,
-    rowHeight: 50,
+    headerHeight: 34,
+    rowHeight: 40,
   }
 ): string =>
   `${options.headerHeight}px repeat(${dataLength}, ${options.rowHeight}px)`;
+
+export const GetGridColumns = (
+  columns: string[],
+): string => columns.join(' ');

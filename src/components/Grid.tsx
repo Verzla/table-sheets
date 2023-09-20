@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { GetGridRows } from './GridStyleFuncs';
+import { GetGridColumns, GetGridRows } from './GridStyleFuncs';
 import { useSetVariables } from '../hooks/useSetVariables';
 import { GridProps } from '../types/Grid';
 import { GridContext, useGridState } from './GridContext';
@@ -9,6 +9,7 @@ import { useEventListener, useOnClickOutside } from 'usehooks-ts';
 export function Grid<T>({ data, columns, styleVariables }: GridProps<T>) {
   const gridState = useGridState(columns.length - 1, data.length - 1);
   const ref = useRef<HTMLDivElement>(null);
+  const columnTemplate = GetGridColumns(columns.map((c) => c.width));
 
   useSetVariables(ref, styleVariables ?? {});
 
@@ -62,10 +63,18 @@ export function Grid<T>({ data, columns, styleVariables }: GridProps<T>) {
     <GridContext.Provider value={gridState}>
       <div
         className={'ts-grid'}
-        style={{ gridTemplateRows: GetGridRows(data.length) }}
+        style={{
+          gridTemplateRows: GetGridRows(data.length),
+        }}
         ref={ref}
       >
-        <div className={'ts-header'} style={{ gridRow: 1 }}>
+        <div
+          className={'ts-header'}
+          style={{
+            gridRow: 1,
+            gridTemplateColumns: columnTemplate,
+          }}
+        >
           {columns.map((c, cIndex) => (
             <div key={`gh_${cIndex}`}>{c.title(data[cIndex])}</div>
           ))}
@@ -73,7 +82,7 @@ export function Grid<T>({ data, columns, styleVariables }: GridProps<T>) {
         {data.map((d, dIndex) => (
           <div
             className={'ts-row'}
-            style={{ gridRow: dIndex + 2 }}
+            style={{ gridRow: dIndex + 2, gridTemplateColumns: columnTemplate }}
             key={`gr_${dIndex}`}
           >
             {columns.map((c, cIndex) => (

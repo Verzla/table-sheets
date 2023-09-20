@@ -18,8 +18,8 @@ const DEFAULT_PRIMARY = '#926AA6';
 
 const DEFAULT_STYLE_OPTIONS: StyleVariables = {
   primary: DEFAULT_PRIMARY,
-  headerBg: '#EDE7FB',
-  headerFontColor: DEFAULT_PRIMARY,
+  headerBg: 'transparent',
+  fontColor: '#212E3E',
   border: '#E9E9E9',
   selectedBg: '#F8F5FF',
 };

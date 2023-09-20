@@ -51,11 +51,13 @@ export const Example = () => {
     {
       title: () => 'Id',
       value: (row) => row.id,
+      width: '40px',
       readonly: true,
     },
     {
       title: () => 'Name',
       value: (row) => row.name,
+      width: '2fr',
       readonly: true,
     },
     {
@@ -71,6 +73,7 @@ export const Example = () => {
           }
         />
       ),
+      width: '1fr',
     },
     {
       title: () => 'Brand',
@@ -83,6 +86,7 @@ export const Example = () => {
           onChange={(brand) => onFieldChange(state.rowIndex, 'brand', brand)}
         />
       ),
+      width: '1fr',
     },
   ];
 
