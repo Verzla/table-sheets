@@ -1,5 +1,4 @@
 import React, { useCallback, useMemo, useRef, useState } from 'react';
-import css from './Autocomplete.module.css';
 import { Input, InputProps } from '../input/Input';
 import { useEventListener, useOnClickOutside } from 'usehooks-ts';
 
@@ -118,7 +117,7 @@ export function Autocomplete<T>({
   useEventListener('keydown', (e) => autoCompleteKeyDown(e), inputRef);
 
   return (
-    <div className={css.autocomplete} ref={ref}>
+    <div className={'ts-autocomplete'} ref={ref}>
       <Input
         {...props}
         value={search}
@@ -132,11 +131,11 @@ export function Autocomplete<T>({
         ref={inputRef}
       />
       {focused && (
-        <div className={css.autocompleteItems}>
+        <div className={'ts-autocomplete-items'}>
           {availableOptions.map((d, dIndex) => (
             <div
               key={`ac_${name}_${d.id}`}
-              className={dIndex === itemFocused ? css.autocompleteActive : ''}
+              className={dIndex === itemFocused ? 'ts-autocomplete-active`' : ''}
               onClick={() => {
                 // TODO the onClick is not working
                 console.log('onClick', d);

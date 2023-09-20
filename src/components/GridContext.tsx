@@ -1,6 +1,6 @@
 import { createContext, useCallback, useContext, useState } from 'react';
 import { CellState, GridPoint, GridState } from '../types/Grid';
-import css from '../style/Grid.module.css';
+import css from '../style/table-sheets.css';
 
 export const useGridState = (xMax: number, yMax: number): GridState => {
   const [selections, setSelections] = useState<Array<GridPoint>>([]);

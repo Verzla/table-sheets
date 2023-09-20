@@ -1,8 +1,8 @@
 import { RefObject, useLayoutEffect } from 'react';
 
-// All the options will be prefixed with `tsGrid`
-// Example: var(--tsGrid-headerBg);
-const variableStylePrefix = 'tsGrid-';
+// All the options will be prefixed with `ts-style`
+// Example: var(--ts-style-headerBg);
+const variableStylePrefix = 'ts-style-';
 
 interface StyleVariables {
   primary: string;

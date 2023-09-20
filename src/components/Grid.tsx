@@ -1,5 +1,4 @@
 import React, { useRef } from 'react';
-import css from '../style/Grid.module.css';
 import { GetGridRows } from './GridStyleFuncs';
 import { useSetVariables } from '../hooks/useSetVariables';
 import { GridProps } from '../types/Grid';
@@ -62,18 +61,18 @@ export function Grid<T>({ data, columns, styleVariables }: GridProps<T>) {
   return (
     <GridContext.Provider value={gridState}>
       <div
-        className={css.grid}
+        className={'ts-grid'}
         style={{ gridTemplateRows: GetGridRows(data.length) }}
         ref={ref}
       >
-        <div className={css.header} style={{ gridRow: 1 }}>
+        <div className={'ts-header'} style={{ gridRow: 1 }}>
           {columns.map((c, cIndex) => (
             <div key={`gh_${cIndex}`}>{c.title(data[cIndex])}</div>
           ))}
         </div>
         {data.map((d, dIndex) => (
           <div
-            className={css.row}
+            className={'ts-row'}
             style={{ gridRow: dIndex + 2 }}
             key={`gr_${dIndex}`}
           >

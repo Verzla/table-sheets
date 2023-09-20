@@ -1,5 +1,4 @@
 import React from 'react';
-import css from '../style/Grid.module.css';
 import { useGridContext } from './GridContext';
 import { CellState } from '../types/Grid';
 
@@ -18,11 +17,16 @@ export const GridCell = ({
   const cellState: CellState = getGridCellState({ y, x });
 
   return (
-    <div className={css.cell} data-readonly={Boolean(readonly)} data-y={y} data-x={x}>
+    <div
+      className={'ts-cell'}
+      data-readonly={Boolean(readonly)}
+      data-y={y}
+      data-x={x}
+    >
       <div
         className={[
-          cellState.isActive ? css.active : '',
-          cellState.isSelected ? css.focus : '',
+          cellState.isActive ? 'ts-active' : '',
+          cellState.isSelected ? 'ts-focus' : '',
         ].join(' ')}
         onClick={(e) => {
           if (!readonly) {
