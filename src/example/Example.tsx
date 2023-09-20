@@ -4,8 +4,8 @@ import { ColumnRenderer, OnDataUpdate } from '../types/Grid';
 import { Autocomplete } from '../components/autocomplete/Autocomplete';
 import { brands, categories } from './Data';
 
-type FakeCategory = { id: number; content: string };
-type FakeBrand = { id: number; content: string };
+type FakeCategory = { id: number; name: string };
+type FakeBrand = { id: number; name: string };
 
 type FakeProductType = {
   id: number;

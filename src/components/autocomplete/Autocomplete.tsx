@@ -2,7 +2,7 @@ import React, { useCallback, useMemo, useRef, useState } from 'react';
 import { Input, InputProps } from '../input/Input';
 import { useEventListener, useOnClickOutside } from 'usehooks-ts';
 
-type IdentifiableContent<T> = T & { id: number; content: string };
+type IdentifiableContent<T> = T & { id: number; name: string };
 
 interface AutocompleteProps<T> extends Omit<InputProps, 'onChange' | 'value'> {
   name: string; // Has to be unique to prevent key issues
@@ -18,7 +18,7 @@ export function Autocomplete<T>({
   onChange,
   ...props
 }: AutocompleteProps<T>) {
-  const [search, setSearch] = useState(selectedDataValue?.content ?? '');
+  const [search, setSearch] = useState(selectedDataValue?.name ?? '');
   const [itemFocused, setItemFocused] = useState(-1);
   const [focused, setFocused] = useState(false);
   const ref = useRef<HTMLDivElement | null>(null);
@@ -41,7 +41,7 @@ export function Autocomplete<T>({
     setFocused(false);
     setItemFocused(-1);
 
-    setSearch(newValue.content);
+    setSearch(newValue.name);
     onChange(newValue);
   };
 
@@ -142,7 +142,7 @@ export function Autocomplete<T>({
                 updateOnChange(d);
               }}
             >
-              {d.content}
+              {d.name}
             </div>
           ))}
         </div>

@@ -1,7 +1,7 @@
 import { InputProps } from '../input/Input';
 type IdentifiableContent<T> = T & {
     id: number;
-    content: string;
+    name: string;
 };
 interface AutocompleteProps<T> extends Omit<InputProps, 'onChange' | 'value'> {
     name: string;
