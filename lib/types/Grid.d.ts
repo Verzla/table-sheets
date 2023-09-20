@@ -25,6 +25,7 @@ export type ColumnRenderer<T> = {
     title: (row: T) => string;
     value: (row: T, state: CellState) => ReactNode | string;
     readonly?: boolean;
+    width?: string;
 };
 export interface GridProps<T, F extends keyof T = keyof T> {
     data: Identifiable<T>[];

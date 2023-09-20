@@ -9,7 +9,7 @@ import { useEventListener, useOnClickOutside } from 'usehooks-ts';
 export function Grid<T>({ data, columns, styleVariables }: GridProps<T>) {
   const gridState = useGridState(columns.length - 1, data.length - 1);
   const ref = useRef<HTMLDivElement>(null);
-  const columnTemplate = GetGridColumns(columns.map((c) => c.width));
+  const columnTemplate = GetGridColumns(columns.map((c) => c.width ?? '1fr'));
 
   useSetVariables(ref, styleVariables ?? {});
 

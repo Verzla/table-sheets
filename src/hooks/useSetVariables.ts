@@ -7,7 +7,7 @@ const variableStylePrefix = 'ts-style-';
 interface StyleVariables {
   primary: string;
   headerBg: string;
-  headerFontColor: string;
+  fontColor: string;
   border: string;
   selectedBg: string;
 }

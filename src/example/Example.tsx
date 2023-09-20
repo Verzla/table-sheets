@@ -73,7 +73,6 @@ export const Example = () => {
           }
         />
       ),
-      width: '1fr',
     },
     {
       title: () => 'Brand',
@@ -86,7 +85,6 @@ export const Example = () => {
           onChange={(brand) => onFieldChange(state.rowIndex, 'brand', brand)}
         />
       ),
-      width: '1fr',
     },
   ];
 
