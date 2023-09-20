@@ -2,7 +2,7 @@ import { RefObject } from 'react';
 interface StyleVariables {
     primary: string;
     headerBg: string;
-    headerFontColor: string;
+    fontColor: string;
     border: string;
     selectedBg: string;
 }
