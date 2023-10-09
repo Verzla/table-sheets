@@ -7,7 +7,7 @@ An excel-like sheet editor for large data sets.
 ## Todos
 - [ ] Remove react and react-dom as a dev dependency
 - [x] Create an example project with Vite
-- [ ] Figure out why onClick is not working in the autocomplete
+- [x] Figure out why onClick is not working in the autocomplete
 - [ ] History management of the data (Undo, Redo)
 - [ ] Write a better readme :~
 - [ ] Create docs
