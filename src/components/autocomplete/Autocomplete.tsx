@@ -102,6 +102,7 @@ export function Autocomplete<T>({
         case 'Shift':
         case 'Backspace':
           {
+            // This comment is just to make sure we don't default.
             // Just don't "setFocused(true)";
           }
           break;
@@ -123,11 +124,6 @@ export function Autocomplete<T>({
         value={search}
         onChange={(e) => setSearch(e.target.value)}
         onDoubleClickCapture={() => setFocused(true)}
-        onBlur={() => {
-          setTimeout(() => {
-            setFocused(false);
-          }, 1);
-        }}
         ref={inputRef}
       />
       {focused && (
@@ -136,11 +132,9 @@ export function Autocomplete<T>({
             <div
               key={`ac_${name}_${d.id}`}
               className={dIndex === itemFocused ? 'ts-autocomplete-active' : ''}
-              // onClick={() => {
-              //   // TODO the onClick is not working
-              //   console.log('onClick', d);
-              //   updateOnChange(d);
-              // }}
+              onClick={() => {
+                updateOnChange(d);
+              }}
             >
               {d.name}
             </div>
