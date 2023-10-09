@@ -26,6 +26,15 @@ export const Example = () => {
     FakeProduct(0),
     FakeProduct(1),
     FakeProduct(2),
+    FakeProduct(3),
+    FakeProduct(4),
+    FakeProduct(5),
+    FakeProduct(6),
+    FakeProduct(7),
+    FakeProduct(8),
+    FakeProduct(9),
+    FakeProduct(10),
+    FakeProduct(11),
   ]);
 
   const onFieldChange: OnDataUpdate<FakeProductType> = useCallback(

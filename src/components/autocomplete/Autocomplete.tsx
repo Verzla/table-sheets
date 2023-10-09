@@ -124,6 +124,7 @@ export function Autocomplete<T>({
         value={search}
         onChange={(e) => setSearch(e.target.value)}
         onDoubleClickCapture={() => setFocused(true)}
+        onBlur={() => setTimeout(() => setFocused(false), 250)}
         ref={inputRef}
       />
       {focused && (
