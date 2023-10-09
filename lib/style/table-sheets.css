@@ -110,6 +110,7 @@
 .ts-autocomplete-items div:hover {
     /*when hovering an item:*/
     background-color: rgba(0, 0, 0, 0.1);
+    pointer-events: bounding-box;
 }
 
 .ts-autocomplete-active {
